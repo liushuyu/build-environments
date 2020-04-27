@@ -11,7 +11,7 @@ wget -q "${MINGW_URL}" -O 'mingw.7z'
 cp -rv "${TARGET_DIR}"/* '/usr/x86_64-w64-mingw32/lib/'
 
 # SDL2
-SDL2_VER='2.0.10'
+SDL2_VER='2.0.12'
 wget "https://www.libsdl.org/release/SDL2-devel-${SDL2_VER}-mingw.tar.gz"
 tar -zxf "SDL2-devel-${SDL2_VER}-mingw.tar.gz"
 cd SDL2-${SDL2_VER}/
