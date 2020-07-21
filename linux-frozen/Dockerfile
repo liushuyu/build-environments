@@ -1,5 +1,6 @@
 FROM ubuntu:20.04
 LABEL maintainer="citraemu"
+ENV DEBIAN_FRONTEND=noninteractive
 RUN mkdir -p /tmp/pkgs
 COPY install_package.py /tmp/pkgs
 RUN apt-get update && apt-get install -y p7zip-full build-essential wget git python-launchpadlib ccache ninja-build
