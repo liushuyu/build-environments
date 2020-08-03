@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import sys
 import re
@@ -27,8 +27,8 @@ def get_url(pkg, distro):
 
 def list_dependencies(deb_file):
     t = subprocess.check_output(
-        ['bash', '-c', '(dpkg -I {} | grep -oP "^ Depends\: \K.*$") || true'.format(deb_file)])
-    deps = [i.split('|')[0].strip() for i in t.split(',')]
+        ['bash', '-c', '(dpkg -I {} | grep -oP "^ Depends\\: \\K.*$") || true'.format(deb_file)])
+    deps = [i.split(b'|')[0].decode('utf-8').strip() for i in t.split(b',')]
     equals_re = re.compile(r'^(.*) \(= (.*)\)$')
     return [equals_re.sub(r'\1=\2', i).split('=') for i in filter(equals_re.match, deps)]
 
