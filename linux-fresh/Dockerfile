@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:24.10
 LABEL maintainer="citraemu"
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -10,8 +10,8 @@ RUN apt-get install -y \
     # Tools
     build-essential \
     ccache \
-    clang \
-    clang-format-15 \
+    clang-18 \
+    clang-format-18 \
     cmake \
     curl \
     git \

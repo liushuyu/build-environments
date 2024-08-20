@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:24.10
 LABEL maintainer="citraemu"
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -56,12 +56,12 @@ RUN apt-get install -y \
 # qt6gtk2 dependencies
     gtk2.0
     
-# Install LLVM 15
+# Install LLVM 18
 RUN wget https://apt.llvm.org/llvm.sh
 RUN chmod +x llvm.sh
-RUN ./llvm.sh 15 all
-RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-15 150
-RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-15 150
+RUN ./llvm.sh 18 all
+RUN update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-18 150
+RUN update-alternatives --install /usr/bin/clang clang /usr/bin/clang-18 150
 
 # Compile and install qt6gtk2
 RUN git clone --recursive https://github.com/trialuser02/qt6gtk2
